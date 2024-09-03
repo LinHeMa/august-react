@@ -5,6 +5,9 @@ const SignIn = () => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
+        options: {
+          redirectTo: `https://august-react.vercel.app/`,
+        },
       });
       if (error) throw error;
     } catch (error) {
